@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.main table, .main th, .main td {
+    border: 1px solid black;
+}
+
+.main th, .main td {
+    text-align: left;
+    padding: 8px;
+}
+
+.main th {
+    background-color: #E193AA;
+    color: white;
+}
+
+.main tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.main tr:hover {
+    background-color: #ddd;
+}
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E193AA;
+    padding: 10px 20px;
+    border-bottom: 1px solid #dddddd;
+    position: fixed; /* Added to make the header fixed */
+    top: 0; /* Align the header to the top */
+    left: 0; /* Align the header to the left */
+    width: 100%; /* Ensure the header is full width */
+    z-index: 1000; /
+}
+
+.header-left .logo {
+    height: 80px; /* Use the correct size for your logo */
+}
+
+nav {
+    display: flex;
+}
+
+.header-nav a {
+    color: #333;
+    text-decoration: none;
+    margin-left: 40px;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right a {
+    margin-left: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-right a img, .header-right input[type="search"], .header-right button {
+    width: 36px;
+    height: 36px;
+}
+
+.header-right input[type="search"] {
+    padding: 10px 20px; /* Increased padding */
+    margin-right: 20px; /* Increased margin */
+    border: 2px solid #cccccc; /* Increased border size */
+    border-radius: 8px; /* Increased border radius */
+    font-size: 16px; /* Added font size */
+}
+
+.header-right button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 30px; /* Increased padding */
+    border-radius: 8px; /* Increased border radius */
+    font-size: 16px; /* Added font size */
+    cursor: pointer;
+}
+
+nav a:hover,
+.header-right button:hover {
+    opacity: 0.8;
+}
+
+.main {
+    padding-top: 160px; /* Added padding to top of main content to account for fixed header height */
+    width: 100%;
+    height: calc(100vh - 160px); /* Adjusted to account for fixed header */
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    padding-bottom: 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, minmax(50vh, 1fr)); /* Each row will take at least 50% of the viewport height */
+    gap: 0;
+}
+
+.product-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Add this to your existing CSS file */
+/* Style updates for modal to match website theme */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1001; /* Above the header */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Increase top margin to vertically center */
+    padding: 20px;
+    border: 5px solid #E193AA; /* Pink border */
+    width: 80%;
+    max-width: 450px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Needed for absolute positioning of children */
+}
+
+/* Style for the close button */
+.close {
+    color: #aaa;
+    position: absolute; /* Position the close button absolutely */
+    right: 10px; /* 10px from the right */
+    top: 10px; /* 10px from the top */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #E193AA; /* Pink color on hover for the close button */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Adjustments for the header of the modal to accommodate the close button */
+.modal-header {
+    position: relative; /* Needed for absolute positioning of children */
+    width: 100%;
+    text-align: center;
+}
+
+.modal-logo {
+    width: 100px;
+    height: auto;
+    margin-top: 20px; /* Add top margin to give space from the close button */
+    margin-bottom: 20px;
+}
+
+.modal h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center; /* Center the title text */
+}
+
+.modal input[type="text"],
+.modal input[type="password"] {
+    width: calc(100% - 40px); /* Full width minus padding */
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* Remove display: inline-block; */
+}
+
+.modal button {
+    background-color: #E193AA; /* Pink color from the website */
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: calc(100% - 40px); /* Full width minus padding */
+    border-radius: 4px;
+}
+
+.modal button:hover {
+    opacity: 0.8;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* ... other styles ... */
+.product-item {
+    position: relative;
+    /* ... other styles ... */
+}
+.product-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 300px; /* Adjust as needed */
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: hidden; /* Initially hidden */
+}
+
+
+.most-selling-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(163, 46, 46, 0.8);
+    width: 300px; /* Adjust as needed */
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+form {
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-row {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.form-row label {
+    flex: 0 0 150px;
+    margin-bottom: 0;
+}
+
+.form-row input, .form-row select {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+input[type="submit"] {
+    background-color: #E193AA;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #d172a6;
+}
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-row label {
+        margin-bottom: 5px;
+    }
+}
